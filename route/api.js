@@ -1,13 +1,17 @@
-const express = requir('express');
+const express = require('express');
 // create a router
 const router = express.Router();
 // handle the four methods
-router.get('/list',function(req,res){
+router.get('/items',function(req,res){
   res.send('GET Request');
 });
 // add a new items
-router.post('/list',function(req,res){
-  res.send('POST Request');
+router.post('/items',function(req,res){
+  res.send({
+    type:'POST Request',
+    name : req.body.name,
+    age : req.body.age
+  });
 });
 // update an existing items
 router.put('/items/:id',function(req,res){
