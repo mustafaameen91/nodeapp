@@ -9,6 +9,9 @@ const app = express();
 mongoose.connect('mongodb://localhost/listItem');
 // we assign to global because the mongoose.Promis is deprecated
 mongoose.Promise = global.Promise;
+// add a static method to deal with html page
+app.use(express.static('public'));
+
 // use the body parser to handle the informations that's comes from a user
 app.use(bodyParser.json());
 // use api file
